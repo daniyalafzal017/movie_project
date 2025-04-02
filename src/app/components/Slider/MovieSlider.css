@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 /* Swiper Slide Customization */
@@ -15,43 +14,34 @@
   align-items: center;
   transition: transform 0.5s ease-in-out;
   height: 90vh;
-  /* border: 1px solid green; */
 }
 
-/* Center Slide */
+/* Center Slide - Bigger & No Tilt */
 .swiper-slide-active .poster-card {
-  width: 100% !important;
-  height: 80vh !important;
+  width: 100% !important; /* Make center image larger */
+  height: 85vh !important; /* Taller center image */
   transition: all 0.5s ease-in-out;
-  transform: rotate(0deg); /* Keep center image straight */
+  transform: scale(1.1) rotate(0deg); /* Scale up the center slide */
   filter: brightness(1);
 }
 
-/* Left & Right Slides - Tilted Effect */
+/* Left & Right Slides - Tilted & Smaller */
 .swiper-slide-custom:not(.swiper-slide-active) .poster-card {
-  width: 70% !important;
+  width: 65% !important;
   filter: brightness(0.7); /* Dim non-active slides */
   transition: transform 0.5s ease-in-out;
 }
 
+/* Left Slide (Taller on the outer side, shorter on the inner side) */
 .swiper-slide-prev .poster-card {
-  height: 65vh !important; /* Greater height for left side */
-  transform: rotateY(15deg) scale(0.9); /* Tilt toward center */
+  height: 70vh !important; /* Taller on the left */
+  transform: perspective(600px) rotateY(15deg) rotateX(-0deg) scale(0.9);
 }
 
+/* Right Slide (Taller on the outer side, shorter on the inner side) */
 .swiper-slide-next .poster-card {
-  height: 55vh !important; /* Smaller height for right side */
-  transform: rotateY(-15deg) scale(0.9); /* Tilt toward center */
-}
-
-/* Left Slide */
-.swiper-slide-prev .poster-card {
-  transform: rotateY(15deg) scale(0.9); /* Tilt toward center */
-}
-
-/* Right Slide */
-.swiper-slide-next .poster-card {
-  transform: rotateY(-15deg) scale(0.9); /* Tilt toward center */
+  height: 60vh !important; /* Shorter on the right */
+  transform: perspective(600px) rotateY(-15deg) rotateX(-0deg) scale(0.9);
 }
 
 /* Movie Poster Styling */
